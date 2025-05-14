@@ -1,0 +1,20 @@
+{
+    "name": "vespasiano/it",
+    "description": "",
+    "type": "lib",
+    "autoload": {
+        "psr-4": {
+            "It\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vespasiano",
+            "email": "vespasianomatheus@gmail.com"
+        }
+    ],
+    "bin": [
+        "bin/it"
+    ],
+    "license": "MIT"
+}
