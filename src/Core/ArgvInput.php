@@ -18,7 +18,6 @@ class ArgvInput
     public function __construct(?array $argv = null)
     {
         $argv ??= $_SERVER['argv'] ?? [];
-        $this->validateEnvironment();
 
         $this->param = $argv;
         array_shift($argv); // remove app name
@@ -90,13 +89,5 @@ class ArgvInput
     public function getThirdArg()
     {
         return $this->third;
-    }
-
-    private function validateEnvironment()
-    {
-        if (!is_dir('lib/adianti') && !class_exists('Adianti\Core\AdiantiCoreApplication')) {
-            PrintLog::error('❌ Este comando deve ser executado dentro de um projeto com o Adianti Framework.');
-            exit(1);
-        }
     }
 }

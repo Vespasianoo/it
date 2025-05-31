@@ -1,0 +1,15 @@
+<?php
+
+use It\Core\ArgvInput;
+use It\Core\Command;
+use It\Lib\PrintLog;
+
+class ExampleCommand extends Command
+{
+    const DESCRIPTION = 'Command example';
+ 
+    public function handle(ArgvInput $argvInput): void
+    {
+        PrintLog::success('Example command executed successfully');
+    }
+}

@@ -9,6 +9,11 @@ if (php_sapi_name() !== 'cli') {
 
 use It\Core\App;
 use It\Core\ArgvInput;
+use It\Core\CommandManager;
+
+// your commands
+CommandManager::addCommand('example:command', ExampleCommand::class);
 
 (new App)->handle(new ArgvInput);
 
+exit(1);
