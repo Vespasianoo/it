@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require_once 'init.php';
+
+if (php_sapi_name() !== 'cli') {
+    exit();
+}
+
+use It\Core\App;
+use It\Core\ArgvInput;
+use It\Core\CommandManager;
+
+// your commands
+CommandManager::addCommand('teste', ExampleCommand::class);
+
+(new App)->handle(new ArgvInput);
+
+exit(1);
