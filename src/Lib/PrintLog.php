@@ -31,4 +31,9 @@ abstract class PrintLog
     {
         echo self::YELLOW . $message . self::RESET . "\n";
     }
+
+    final public static function white($message)
+    {
+        echo $message . self::RESET . "\n";
+    }
 }
