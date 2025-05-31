@@ -12,7 +12,7 @@ use It\Core\ArgvInput;
 use It\Core\CommandManager;
 
 // your commands
-CommandManager::addCommand('teste', ExampleCommand::class);
+CommandManager::addCommand('example:command', ExampleCommand::class);
 
 (new App)->handle(new ArgvInput);
 
