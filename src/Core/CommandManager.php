@@ -10,12 +10,19 @@ class CommandManager
 
     public static function addCommand(string $command, string $class): void
     {
-        if (self::commandExists($command))
-        {
-            PrintLog::error('This command already exists');
+        if (self::commandExists($command)) {
+            PrintLog::error("The command '{$command}' is already registered.");
             exit(1);
         }
     
+        if (!is_subclass_of($class, Command::class)) {
+            $message = "The class '{$class}' must extend '";
+            $message .= Command::class;
+            $message .= "' to be registered as a command.";
+            
+            PrintLog::error($message);
+            exit(1);
+        }
         self::$commands[$command] = $class;
     }    
 
