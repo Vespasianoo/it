@@ -5,6 +5,7 @@ namespace It\Commands;
 use Exception;
 use It\Core\ArgvInput;
 use It\Core\Command;
+use It\Core\Stub;
 use It\Core\Stubs;
 use It\Lib\PrintLog;
 
@@ -78,7 +79,7 @@ class MakeController extends Command
 
     private function getStub()
     {
-        $stub = file_get_contents(Stubs::pathBase . '/controller.stub');
+        $stub = Stub::get('controller');
 
         if (!$stub) {
             throw new Exception("Controller stub not found.");

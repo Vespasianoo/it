@@ -2,8 +2,10 @@
 
 namespace It\Commands;
 
+use Exception;
 use It\Core\ArgvInput;
 use It\Core\Command;
+use It\Core\Stub;
 use It\Lib\PrintLog;
 
 class Init extends Command
@@ -15,13 +17,13 @@ class Init extends Command
         $currentDir = getcwd();
         $destinationPath = $currentDir . '/it';
 
-        file_put_contents($destinationPath, $this->getBinStub());
+        file_put_contents($destinationPath, $this->getBinStub('bin'));
 
         if (!file_exists('./app/service/commands')) {
             mkdir('./app/service/commands', 0777, true);
         }
         
-        $stub = $this->getExampleCommandStub();
+        $stub = $this->getBinStub('exampleCommand');
         $this->createExampleCommand($stub);
 
         PrintLog::success('Project initialized successfully!');
@@ -41,19 +43,15 @@ class Init extends Command
     {
         file_put_contents('./app/service/commands/ExampleCommand.php', $content);
     }
-
-    private function getExampleCommandStub() 
-    {
-        return $this->getStub(__DIR__ . '/../templates/exampleCommand.stub');
-    }
     
-    private function getBinStub() 
+    private function getBinStub($stub) 
     {
-        return $this->getStub(__DIR__ . '/../templates/bin.stub');
-    }
+        $stub = Stub::get($stub);
 
-    private function getStub($path) 
-    {
-        return file_get_contents($path);
-    } 
+        if (!$stub) {
+            throw new Exception("Stub not found.");
+        }
+        
+        return $stub;
+    }
 }
