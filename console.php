@@ -9,4 +9,5 @@ use It\Core\CommandManager;
 CommandManager::addCommand('help', Help::class);
 CommandManager::addCommand('make:model', MakeModel::class);
 CommandManager::addCommand('make:controller', MakeController::class);
+CommandManager::addCommand('make:sm', MakeServiceModel::class);
 CommandManager::addCommand('init', Init::class);
