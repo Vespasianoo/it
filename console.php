@@ -4,6 +4,7 @@ use It\Commands\Help;
 use It\Commands\Init;
 use It\Commands\MakeController;
 use It\Commands\MakeModel;
+use It\Commands\MakeServiceModel;
 use It\Core\CommandManager;
 
 CommandManager::addCommand('help', Help::class);

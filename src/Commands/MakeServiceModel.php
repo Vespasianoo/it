@@ -89,7 +89,7 @@ class MakeServiceModel extends Command
             mkdir($path_target, 0777, true);
         }
 
-        $path_target .= "/{$this->className}RestService.php";
+        $path_target .= "/{$this->className}.php";
 
         file_put_contents($path_target, $serviceRestContent);
     }
