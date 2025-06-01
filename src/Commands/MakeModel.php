@@ -6,6 +6,7 @@ use Adianti\Database\TTransaction;
 use Exception;
 use It\Core\ArgvInput;
 use It\Core\Command;
+use It\Core\Stub;
 use It\Lib\GetColumns;
 use It\Lib\PrintLog;
 
@@ -107,7 +108,7 @@ class MakeModel extends Command
 
     private function getStubs(): string
     {
-        $stub = file_get_contents('./vendor/vespasiano/it/src/templates/model.stub');
+        $stub = Stub::get('model');
 
         if (!$stub) {
             throw new Exception("Model stub file not found.");
