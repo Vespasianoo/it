@@ -1,0 +1,10 @@
+<?php
+
+use Adianti\Service\AdiantiRecordService;
+
+class {{model}}RestService extends AdiantiRecordService
+{
+    const DATABASE      = '{{database}}';
+    const ACTIVE_RECORD = '{{model}}';
+    // const ATTRIBUTES    = ['id'];
+}
