@@ -27,7 +27,7 @@ class MakeServiceModel extends Command
 
             $this->build();
 
-            PrintLog::success('deu certo');
+            PrintLog::success("Service '{$this->className}' was created successfully.");
         } catch (Exception $e) {
             PrintLog::error($e->getMessage());
         }
@@ -53,7 +53,7 @@ class MakeServiceModel extends Command
     private function setClassName(string $firstArg)
     {
         if (empty($firstArg)) {
-            throw new Exception("O nome da class é obrigatorio");
+            throw new Exception("Class name is required.");
         }
 
         $this->className = $firstArg . 'RestService';
@@ -63,7 +63,7 @@ class MakeServiceModel extends Command
     private function setConnector(string $secondArg)
     {
         if (empty($secondArg)) {
-            throw new Exception("O connector é obrigatorio");
+            throw new Exception("Database connector must be specified.");
         }
 
         $this->connector = $secondArg;
