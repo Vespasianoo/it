@@ -16,4 +16,4 @@ CommandManager::addCommand('example:command', ExampleCommand::class);
 
 (new App)->handle(new ArgvInput);
 
-exit(1);
+exit;

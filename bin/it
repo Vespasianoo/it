@@ -12,3 +12,4 @@ use It\Core\ArgvInput;
 
 (new App)->handle(new ArgvInput);
 
+exit;
